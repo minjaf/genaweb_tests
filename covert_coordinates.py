@@ -1,7 +1,9 @@
 import os
 import pandas as pd
+import sys
 
-fasta_file = r"C:\Users\FishmanVS\Downloads\splice_test_1.fa"
+
+fasta_file = sys.argv[1]
 
 with open(fasta_file) as fin:
 	l = fin.readline().split()[1][6:]
@@ -11,7 +13,8 @@ with open(fasta_file) as fin:
 
 # print (chrm, start)
 
-webservice_out_folder = r"C:\Users\FishmanVS\Downloads\request_2023-11-22_59333_archive"
+webservice_out_folder = sys.argv[2]
+
 webservice_out_folder = webservice_out_folder.replace("\\","/")
 
 with open(os.path.join(webservice_out_folder,"roi.converted.bed"), "w") as fout:
